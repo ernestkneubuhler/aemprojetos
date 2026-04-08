@@ -1,0 +1,180 @@
+/* Definição de Cores e Reset */
+:root {
+    --azul-marinho: #003366;
+    --azul-claro: #005a8d;
+    --laranja: #e67e22;
+    --cinza-texto: #555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Menu de Navegação */
+header {
+    background: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area img {
+    height: 70px; /* Ajuste conforme o tamanho da sua logo */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--azul-marinho);
+    font-weight: bold;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li a.active, nav ul li a:hover {
+    color: var(--laranja);
+}
+
+/* Seção Hero (Destaque Principal) */
+.hero {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-text {
+    width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    color: var(--azul-marinho);
+    line-height: 1.2;
+}
+
+.hero-text h1 span {
+    color: var(--azul-claro);
+}
+
+.hero-text p {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: var(--cinza-texto);
+}
+
+/* Botão com o degradê da logo */
+.btn-gradient {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(to right, var(--azul-marinho), var(--laranja));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-gradient:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Imagem de fundo à direita */
+.hero-image-bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80'); /* Imagem provisória */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    /* Efeito de fade para o branco */
+    mask-image: linear-gradient(to right, transparent, black 30%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
+}
+
+/* Seção de Serviços */
+.services {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.service-item {
+    width: 30%;
+}
+
+.circle-icon {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+}
+
+.circle-icon img {
+    width:100%;        /* Obriga a imagem a ter a largura do círculo (50px) */
+    height: 100%;       /* Obriga a imagem a ter a altura do círculo (50px) */
+    object-fit: contain;/* Garante que a imagem não fique esticada ou cortada */
+    border-radius: 50%; /* Mantém a imagem arredondada como o círculo */
+}
+
+.service-item h3 {
+    color: var(--azul-marinho);
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 0.95rem;
+    color: var(--cinza-texto);
+}
+
+.service-item a {
+    text-decoration: none;
+    color: var(--laranja);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Responsividade para Celular */
+@media (max-width: 768px) {
+    nav ul { display: none; } /* Esconde menu no celular por enquanto */
+    .hero-text { width: 100%; text-align: center; }
+    .hero-image-bg { display: none; }
+    .services { flex-direction: column; gap: 40px; }
+    .service-item { width: 100%; }
+}
